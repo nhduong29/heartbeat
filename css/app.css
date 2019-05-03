@@ -157,7 +157,8 @@ div.player-header {
     cursor: pointer; }
 
 div#player-top {
-  position: relative; }
+  position: relative;
+  background: #000; }
   div#player-top img {
     margin: 0 auto;
     display: block; }
@@ -444,8 +445,13 @@ body {
 
 div#flat-black-player-container {
   position: relative;
-  margin: auto; }
+  margin: auto;
+  max-width: 400px; }
 
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 600px) {
+  div#flat-black-player-container {
+    max-width: none; } }
 /*
   4. Pages
 */
