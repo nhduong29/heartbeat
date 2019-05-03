@@ -452,6 +452,10 @@ div#flat-black-player-container {
 @media screen and (max-width: 600px) {
   div#flat-black-player-container {
     max-width: none; } }
+.row {
+  margin-right: 0px;
+  margin-left: 0px; }
+
 /*
   4. Pages
 */
