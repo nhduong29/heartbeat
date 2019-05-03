@@ -2,10 +2,9 @@
 <html>
   <head>
     <title>Heartbeat</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Include Resource Stylesheets -->
-		<link rel="stylesheet" type="text/css" href="css/foundation.min.css"/>
-
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap-v4/css/bootstrap.min.css">
     <!-- Include font -->
     <link href="https://fonts.googleapis.com/css?family=Lato:400,400i" rel="stylesheet">
 
@@ -16,7 +15,6 @@
 		-->
 		<script type="text/javascript" src="js/jquery.js"></script>
         <script src="js/vue.js"></script>
-		<script type="text/javascript" src="js/foundation.min.js"></script>
 
 		<!-- Include Amplitude JS -->
 		<script type="text/javascript" src="js/amplitude.js"></script>
@@ -24,11 +22,12 @@
 		<!-- Include Style Sheet -->
 		<link rel="stylesheet" type="text/css" href="css/app.css"/>
   </head>
-  <body>
-    <div class="row">
-      <div class="large-4 medium-6 small-12 large-centered medium-centered columns">
-        <div id="flat-black-player-container">
-          <div id="list-screen" class="slide-in-top">
+  <body class="">
+  <div class="container p-0">
+      <div class="row">
+        <div class="col-sm-12 order-sm-4 p-0">
+          <div id="flat-black-player-container">
+            <div id="list-screen" class="slide-in-top">
 
               <div id="list-screen-header" class="hide-playlist">
                 <img id="up-arrow" src="img/up.svg"/>
@@ -125,6 +124,7 @@
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   </body>
