@@ -39,7 +39,7 @@
                 <div v-for="song in songs" class="song amplitude-song-container amplitude-play-pause" data-amplitude-song-index="{{ song.index }}">
                   <span class="song-number-now-playing">
                     <span class="number">{{ song.index + 1 }}</span>
-                    <img class="now-playing" src="img/now-playing.svg"/>
+                    <img class="now-playing"  src="img/now-playing.svg"/>
                   </span>
 
                   <div class="song-meta-container">
@@ -354,7 +354,7 @@
         "name": "I For You",
         "artist": "Jupiter",
         "album": "S.E.N.S.",
-        "url": "songs/(02-CD2)(S.E.N.S.)] I For You (Instrumental)",
+        "url": "songs/(02-CD2)(S.E.N.S.)] I For You (Instrumental).mp3",
         "cover_art_url": "album-art/baralku.jpg"
       },
     ];
@@ -368,6 +368,14 @@
     window.onkeydown = function(e) {
       return !(e.keyCode == 32);
     };
+    function calHeight(){
+      var headerH = $('.player-header').outerHeight();
+      var processbarH = $('#player-progress-bar-container').outerHeight();
+      var playmiddleH = $('#player-middle').outerHeight();
+      var playerbottomH = $('#player-bottom').outerHeight();
+      var topH = $(window).outerHeight() - headerH -processbarH - playmiddleH - playerbottomH;
+      $('#player-top img').css({ 'height': topH + 'px'});
+    }
 
     $(document).ready( function(){
       Amplitude.init({
@@ -378,6 +386,8 @@
         },
         "songs": songs
       });
+      calHeight();
+
       /*
         Handles a click on the down button to slide down the playlist.
       */
@@ -418,7 +428,7 @@
     });
 
     $(window).on('resize', function(){
-      $('img[amplitude-song-info="cover_art_url"]').css('height', $('img[amplitude-song-info="cover_art_url"]').width() + 'px' );
+      calHeight();
     });
 	</script>
 
