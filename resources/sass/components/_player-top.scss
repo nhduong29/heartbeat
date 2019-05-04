@@ -1,7 +1,8 @@
 div#player-top{
   position: relative;
-  background: #000;
+  background: #21222C;
   z-index: -1;
+  max-height: 400px;
   img{
     &[amplitude-main-song-info="true"] {
       width: 100%;

@@ -14,7 +14,7 @@ $('.down-header').on('click', function(){
   /*
     Slides down the playlist.
   */
-  $('#list-screen').slideDown(500, function(){
+  $('#list-screen').slideDown(300, function(){
       $(this).show();
   });
 });
@@ -22,11 +22,25 @@ $('.down-header').on('click', function(){
 /*
   Handles a click on the up arrow to hide the list screen.
 */
-$('.hide-playlist').on('click', function(){
-  $('#list-screen').slideUp( 500, function(){
+$('.hide-playlist, .song').on('click', function(){
+  $('#list-screen').slideUp( 300, function(){
     $(this).hide();
   });
 });
+
+function calHeight(){
+  var headerH = $('.player-header').outerHeight();
+  var processbarH = $('#player-progress-bar-container').outerHeight();
+  var playmiddleH = $('#player-middle').outerHeight();
+  var playerbottomH = $('#player-bottom').outerHeight();
+  var topH = $(window).outerHeight() - headerH -processbarH - playmiddleH - playerbottomH;
+  $('#player-top').css({ 'height': topH + 'px'});
+  if(topH < $('#player-top').width()){
+    $('#player-top img').css({ 'max-width': topH});
+  }else {
+    $('#player-top img').css({ 'max-width': 400});
+  }
+}
 
 /*
   Handles a click on the song played progress bar.
@@ -43,4 +57,21 @@ $('img[amplitude-song-info="cover_art_url"]').css('height', $('img[amplitude-son
 
 $(window).on('resize', function(){
   $('img[amplitude-song-info="cover_art_url"]').css('height', $('img[amplitude-song-info="cover_art_url"]').width() + 'px' );
+  calHeight()
+});
+
+$(document).ready( function(){
+  Amplitude.init({
+    "bindings": {
+      37: 'prev',
+      39: 'next',
+      32: 'play_pause'
+    },
+    "songs": songs
+  });
+  calHeight();
+  $("#list").mCustomScrollbar({
+    theme: "minimal",
+    scrollInertia: 200
+  });
 });
