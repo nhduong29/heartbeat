@@ -158,7 +158,8 @@ div.player-header {
 
 div#player-top {
   position: relative;
-  background: #000; }
+  background: #000;
+  z-index: -1; }
   div#player-top img {
     margin: 0 auto;
     display: block; }

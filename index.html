@@ -73,7 +73,7 @@
                 Show Playlist
               </div>
               <div id="player-top">
-                <img data-amplitude-song-info="cover_art_url"/>
+                <img class="img-fluid" data-amplitude-song-info="cover_art_url"/>
               </div>
               <div id="player-progress-bar-container">
                 <progress id="song-played-progress" class="amplitude-song-played-progress"></progress>
@@ -374,7 +374,12 @@
       var playmiddleH = $('#player-middle').outerHeight();
       var playerbottomH = $('#player-bottom').outerHeight();
       var topH = $(window).outerHeight() - headerH -processbarH - playmiddleH - playerbottomH;
-      $('#player-top img').css({ 'height': topH + 'px'});
+      $('#player-top').css({ 'height': topH + 'px'});
+      if(topH < $('#player-top').width()){
+        $('#player-top img').css({ 'max-width': topH});
+      }else {
+        $('#player-top img').css({ 'max-width': 400});
+      }
     }
 
     $(document).ready( function(){
